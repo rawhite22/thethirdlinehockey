@@ -1,0 +1,19 @@
+{
+  "editor.lineHeight": 25,
+  "editor.fontSize": 12,
+  "editor.fontWeight": "400",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontWeight": "200",
+  "reactSnippets.settings.importReactOnTop": false,
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".module.css",
+      "savePath": "/frontend/src/styles"
+    }
+  ],
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+  "liveSassCompile.settings.generateMap": false,
+  //autoprefix, will auto add perfix like -webkit- -moz-..
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
+}
