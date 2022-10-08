@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import FormGroup from '../components/FormGroup'
 import { handleLoginSubmit, handleLoginFormChange } from '../lib/handlers/login'
 
 function Login() {
@@ -9,24 +10,18 @@ function Login() {
   return (
     <div>
       <form onSubmit={(e) => handleLoginSubmit(e, username, password)}>
-        <div className='form-group'>
-          <label htmlFor='username'>Username</label>
-          <input
-            type='text'
-            required
-            value={username}
-            onChange={(e) => handleLoginFormChange(e, setUsername)}
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            required
-            value={password}
-            onChange={(e) => handleLoginFormChange(e, setPassword)}
-          />
-        </div>
+        <FormGroup
+          type='text'
+          value={username}
+          label='Username'
+          stateSetter={setUsername}
+        />
+        <FormGroup
+          type='password'
+          value={password}
+          label='Password'
+          stateSetter={setPassword}
+        />
         <input type={'submit'} value='Submit' />
       </form>
       <Link href='/forgotpassword'>Forgot password?</Link>

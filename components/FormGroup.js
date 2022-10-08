@@ -1,11 +1,11 @@
-function FormGroup({ label, type, stateSetter }) {
+function FormGroup({ label, type, value, stateSetter }) {
   return (
     <div className='form-group'>
-      <label htmlFor='username'>{label}</label>
+      <label>{label}</label>
       <input
         type={type}
         required
-        value={username}
+        value={value}
         onChange={(e) => stateSetter(e.target.value)}
       />
     </div>

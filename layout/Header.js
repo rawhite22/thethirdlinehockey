@@ -7,7 +7,10 @@ function Header() {
       {session ? (
         <button onClick={() => signOut()}>Sign Out</button>
       ) : (
-        <Link href='/login'>Login</Link>
+        <>
+          <Link href='/login'>Login</Link>
+          <Link href='/signup'>Sign up</Link>
+        </>
       )}
     </header>
   )
