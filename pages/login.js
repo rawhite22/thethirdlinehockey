@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState } from 'react'
 import { handleLoginSubmit, handleLoginFormChange } from '../lib/handlers/login'
 
@@ -28,6 +29,7 @@ function Login() {
         </div>
         <input type={'submit'} value='Submit' />
       </form>
+      <Link href='/forgotpassword'>Forgot password?</Link>
     </div>
   )
 }
