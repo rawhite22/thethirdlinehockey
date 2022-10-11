@@ -8,12 +8,19 @@ function PlayerSelect({ player, watchList, setWatchList }) {
     (person) => person.id === player.id.toString()
   )
   const { data: session } = useSession()
-  const { asPath } = useRouter()
+  const { asPath, query } = useRouter()
+
   const handleWatchListClick = async (id, type) => {
     switch (type) {
       case 'ADD':
         try {
-          const res = await axios.post('/api/watchlist', { playerId: id })
+          console.log(player)
+          const res = await axios.post('/api/watchlist', {
+            playerId: id,
+            playerName: player.name,
+            playerPos: player.pos.type,
+            playerTeamId: query.teamId,
+          })
           console.log(res.data)
           setWatchList((prevState) => [...prevState, { id: res.data.playerID }])
         } catch (error) {

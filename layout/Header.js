@@ -5,6 +5,7 @@ function Header() {
   return (
     <header id='site_header' className='header'>
       <Link href={'/'}>Home</Link>
+      <Link href={'/watchlist'}>watch list</Link>
       {session ? (
         <button onClick={() => signOut()}>Sign Out</button>
       ) : (

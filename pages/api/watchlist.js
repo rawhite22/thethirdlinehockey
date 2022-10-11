@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const userId = session.user.id
-      const { playerId } = req.body
+      const { playerId, playerName, playerPos, playerTeamId } = req.body
       await mongoConnect()
       const watchlist = await WatchList.find().where({ user: userId })
       const alreadyWatching = watchlist.filter(
@@ -20,9 +20,9 @@ export default async function handler(req, res) {
         const newPlayer = await WatchList.create({
           user: userId,
           playerID: playerId,
-          playerName: 'sdfsdfsdf',
-          playerTeam: 'sdfdghfgdsf',
-          playerTeamID: 'sdfhghggdsdf',
+          playerName,
+          playerPos,
+          playerTeamID: playerTeamId,
         })
         await mongoDisconnect()
         res.status(200).json(newPlayer)

@@ -15,7 +15,7 @@ const watchlistSchema = Schema(
       type: String,
       required: [true, 'Please add a player name'],
     },
-    playerTeam: {
+    playerPos: {
       type: String,
       required: [true, 'Please add a player team'],
     },
