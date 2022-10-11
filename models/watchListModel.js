@@ -1,9 +1,9 @@
-const mongoose = require('mongoose')
+import { Schema, model, models } from 'mongoose'
 
-const watchlistSchema = mongoose.Schema(
+const watchlistSchema = Schema(
   {
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: 'User',
     },
@@ -29,4 +29,5 @@ const watchlistSchema = mongoose.Schema(
   }
 )
 
-module.exports = mongoose.model('WatchList', watchlistSchema)
+const WatchList = models.WatchList || model('WatchList', watchlistSchema)
+export default WatchList

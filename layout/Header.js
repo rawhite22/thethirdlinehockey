@@ -4,6 +4,7 @@ function Header() {
   const { data: session, status } = useSession()
   return (
     <header id='site_header' className='header'>
+      <Link href={'/'}>Home</Link>
       {session ? (
         <button onClick={() => signOut()}>Sign Out</button>
       ) : (
