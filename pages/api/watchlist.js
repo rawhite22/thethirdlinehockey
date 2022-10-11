@@ -2,6 +2,7 @@ import { unstable_getServerSession } from 'next-auth/next'
 import { authOptions } from '../api/auth/[...nextauth]'
 import { mongoConnect, mongoDisconnect } from '../../lib/mongoDB'
 import WatchList from '../../models/watchListModel'
+import { getPlayerStats, scoringAverage } from '../../lib/nhl_api/players'
 export default async function handler(req, res) {
   const session = await unstable_getServerSession(req, res, authOptions)
   if (req.method === 'POST') {
@@ -17,12 +18,16 @@ export default async function handler(req, res) {
         await mongoDisconnect()
         throw new Error('Already Watching')
       } else {
+        const stats = await getPlayerStats(playerId.toString())
+        const total = scoringAverage(playerPos, stats)
+
         const newPlayer = await WatchList.create({
           user: userId,
           playerID: playerId,
           playerName,
           playerPos,
           playerTeamID: playerTeamId,
+          scoreAverage: total,
         })
         await mongoDisconnect()
         res.status(200).json(newPlayer)

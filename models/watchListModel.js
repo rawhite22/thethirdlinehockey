@@ -23,6 +23,9 @@ const watchlistSchema = Schema(
       type: String,
       required: [true, 'Please add a players team Id'],
     },
+    scoreAverage: {
+      type: Number,
+    },
   },
   {
     timestamps: true,
