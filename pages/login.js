@@ -1,31 +1,36 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import FormGroup from '../components/FormGroup'
-import { handleLoginSubmit, handleLoginFormChange } from '../lib/handlers/login'
+import { handleLoginSubmit } from '../lib/handlers/login'
 
 function Login() {
+  const { push } = useRouter()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   return (
-    <div>
-      <form onSubmit={(e) => handleLoginSubmit(e, username, password)}>
-        <FormGroup
-          type='text'
-          value={username}
-          label='Username'
-          stateSetter={setUsername}
-        />
-        <FormGroup
-          type='password'
-          value={password}
-          label='Password'
-          stateSetter={setPassword}
-        />
-        <input type={'submit'} value='Submit' />
-      </form>
+    <main id='login_page' className='login_page'>
+      <h2>Login</h2>
+      <div className='form_container'>
+        <form onSubmit={(e) => handleLoginSubmit(e, username, password, push)}>
+          <FormGroup
+            type='text'
+            value={username}
+            label='Username'
+            stateSetter={setUsername}
+          />
+          <FormGroup
+            type='password'
+            value={password}
+            label='Password'
+            stateSetter={setPassword}
+          />
+          <button type='submit'>Login</button>
+        </form>
+      </div>
       <Link href='/forgotpassword'>Forgot password?</Link>
-    </div>
+    </main>
   )
 }
 export default Login

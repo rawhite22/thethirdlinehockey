@@ -11,23 +11,19 @@ function Roster({ roster, watchList }) {
     setFilteredRoster(ros.filter((player) => player.pos.type === position))
   }
   return (
-    <div>
-      <div className='roster'>
-        <div className='roster_filter'>
-          <RosterFilterButton
-            title='Forwards'
-            pos='Forward'
-            filterFn={filterRoster}
-            roster={filteredRoster}
-          />
-          <button onClick={() => filterRoster(roster, 'Defenseman')}>
-            Defenseman
-          </button>
-          <button onClick={() => filterRoster(roster, 'Goalie')}>
-            Goalies
-          </button>
-          <button onClick={() => setFilteredRoster(roster)}>Reset</button>
-        </div>
+    <section className='roster'>
+      <div className='roster_filter'>
+        <RosterFilterButton
+          title='F'
+          pos='Forward'
+          filterFn={filterRoster}
+          roster={roster}
+        />
+        <button onClick={() => filterRoster(roster, 'Defenseman')}>D</button>
+        <button onClick={() => filterRoster(roster, 'Goalie')}>G</button>
+        <button onClick={() => setFilteredRoster(roster)}>Reset</button>
+      </div>
+      <div className='grid_container'>
         {filteredRoster.map((player) => (
           <PlayerSelect
             key={player.id}
@@ -37,7 +33,7 @@ function Roster({ roster, watchList }) {
           />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 export default Roster

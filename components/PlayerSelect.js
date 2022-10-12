@@ -43,8 +43,8 @@ function PlayerSelect({ player, watchList, setWatchList }) {
     }
   }
   return (
-    <div className='player-select'>
-      <p>{player.name}</p>
+    <div className='player_select'>
+      <h3>{player.name}</h3>
       <Link href={`${asPath}/${player.id}`}>Stats & Info</Link>
       {session ? (
         watching.length > 0 ? (

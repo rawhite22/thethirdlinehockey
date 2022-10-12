@@ -1,6 +1,6 @@
 function FormGroup({ label, type, value, stateSetter }) {
   return (
-    <div className='form-group'>
+    <div className='form_group'>
       <label>{label}</label>
       <input
         type={type}

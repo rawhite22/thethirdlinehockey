@@ -9,31 +9,34 @@ function Signup() {
   const [error, setError] = useState(null)
 
   return (
-    <main id='sign_up_page'>
-      <form
-        onSubmit={(e) =>
-          handleSignUpForm(e, username, email, password, setError)
-        }>
-        <FormGroup
-          type='email'
-          value={email}
-          label='Email'
-          stateSetter={setEmail}
-        />
-        <FormGroup
-          type='text'
-          value={username}
-          label='Username'
-          stateSetter={setUsername}
-        />
-        <FormGroup
-          type={showPassword ? 'password' : 'text'}
-          value={password}
-          label='Password'
-          stateSetter={setPassword}
-        />
-        <input type='submit' value='Submit' />
-      </form>
+    <main id='signup_page' className='signup_page'>
+      <h2>Sign Up</h2>
+      <div className='form_container'>
+        <form
+          onSubmit={(e) =>
+            handleSignUpForm(e, username, email, password, setError)
+          }>
+          <FormGroup
+            type='email'
+            value={email}
+            label='Email'
+            stateSetter={setEmail}
+          />
+          <FormGroup
+            type='text'
+            value={username}
+            label='Username'
+            stateSetter={setUsername}
+          />
+          <FormGroup
+            type={showPassword ? 'password' : 'text'}
+            value={password}
+            label='Password'
+            stateSetter={setPassword}
+          />
+          <button type='submit'>Sign Up</button>
+        </form>
+      </div>
     </main>
   )
 }

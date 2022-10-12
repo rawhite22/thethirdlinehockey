@@ -1,4 +1,4 @@
-export const teamColors = [
+export const teams = [
   {
     name: 'New Jersey Devils',
     id: 1,

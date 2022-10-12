@@ -9,7 +9,7 @@ import { getWatchList } from '../../lib/watchlist'
 
 function TeamPage({ team, stats, roster, watchList }) {
   return (
-    <main>
+    <main id='team_page' className='team_page'>
       <TeamInfo info={team} />
       <TeamStats stats={stats} />
       <Roster roster={roster} watchList={watchList} />

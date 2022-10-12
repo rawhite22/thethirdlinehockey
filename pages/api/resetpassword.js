@@ -11,15 +11,17 @@ export default async function handler(req, res) {
       }
       await mongoConnect()
       const user = await User.findOne({ email: req.body.email })
+      console.log(user.id)
       if (!user) {
         throw new Error("Email doesn't exist")
       }
       const token = generateToken(user.id)
       const updatedUser = await User.findOneAndUpdate(
-        { id: user.id },
+        { email: req.body.email },
         { resetPasswordToken: token },
         { new: true }
       )
+
       if (!updatedUser) {
         await mongoDisconnect()
         throw new Error('Could not update the user')

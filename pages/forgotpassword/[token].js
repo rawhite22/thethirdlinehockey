@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { verifyToken } from '../../lib/token'
 import { handlePasswordResetForm } from '../../lib/handlers/passwordReset'
 import { useRouter } from 'next/router'
+import FormGroup from '../../components/FormGroup'
 
 function ResetPassword({ error, id }) {
   const { push } = useRouter()
@@ -9,28 +10,28 @@ function ResetPassword({ error, id }) {
   const [newPassword, setNewPassword] = useState('')
   if (error) {
     return (
-      <div>
+      <main id='resetpassword_page' className='resetpassword_page'>
         <p>Token Expired please resubmit password request.</p>
-      </div>
+      </main>
     )
   }
   return (
-    <div>
-      <form onSubmit={(e) => handlePasswordResetForm(e, id, newPassword, push)}>
-        <div className='form-group'>
-          <label htmlFor='password'>Enter new password</label>
-          <input
-            required
-            type={hidePassword ? 'password' : 'text'}
-            name='password'
-            id='password'
+    <main id='resetpassword_page' className='resetpassword_page'>
+      <h2>Reset Password</h2>
+      <div className='form_container'>
+        <form
+          onSubmit={(e) => handlePasswordResetForm(e, id, newPassword, push)}>
+          <FormGroup
+            type='password'
             value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
+            label='Password'
+            stateSetter={setNewPassword}
           />
-        </div>
-        <input type='submit' value='Submit' />
-      </form>
-    </div>
+
+          <button type='submit'>Reset Password</button>
+        </form>
+      </div>
+    </main>
   )
 }
 export default ResetPassword

@@ -1,6 +1,16 @@
+@import url('./home_page.css');
+@import url('./grids.css');
+@import url('./header.css');
+@import url('./footer.css');
+@import url('./login.css');
+@import url('./signup.css');
+@import url('./forgotpassword.css');
+@import url('./resetpassword.css');
+@import url('./teampage.css');
+
 html,
 body {
-  background-color: rgb(212, 212, 212);
+  background-color: #f8f9fc;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -14,18 +24,4 @@ a {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-.color_container {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.team_marker {
-  height: 25px;
-  width: 60px;
-}
-.team_marker:nth-child(2) {
-  height: 10px;
 }

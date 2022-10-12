@@ -8,8 +8,8 @@
   "liveSassCompile.settings.formats": [
     {
       "format": "expanded",
-      "extensionName": ".module.css",
-      "savePath": "/frontend/src/styles"
+      "extensionName": ".css",
+      "savePath": "/styles"
     }
   ],
   "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
