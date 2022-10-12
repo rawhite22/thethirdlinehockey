@@ -5,6 +5,13 @@ import WatchList from '../../models/watchListModel'
 import { getPlayerStats, scoringAverage } from '../../lib/nhl_api/players'
 export default async function handler(req, res) {
   const session = await unstable_getServerSession(req, res, authOptions)
+  if (req.method === 'GET') {
+    const userId = session.user.id
+    const { playerId, playerName, playerPos, playerTeamId } = req.body
+    await mongoConnect()
+    const watchlist = await WatchList.find().where({ user: userId })
+    res.status(200).json(watchlist)
+  }
   if (req.method === 'POST') {
     try {
       const userId = session.user.id

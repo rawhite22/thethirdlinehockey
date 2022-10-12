@@ -25,8 +25,8 @@
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   background-color: white;
-  -webkit-box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.29);
-          box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.29);
+  -webkit-box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.1);
 }
 
 .signup_page .form_container .form_group {

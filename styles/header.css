@@ -10,6 +10,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: white;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 .header .nav {
@@ -45,5 +48,12 @@
 
 .header .nav_logged_in button {
   font-weight: bolder;
-  background-color: none;
+  background-color: #f8f9fc;
+  border: #dedfe2 3px solid;
+  padding: 0.2rem 0.4rem;
+}
+
+.header .nav_logged_in button:hover {
+  background-color: #dedfe2;
+  border: none;
 }
