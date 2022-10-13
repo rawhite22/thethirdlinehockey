@@ -3,9 +3,12 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useWatchlistContext } from '../hooks/useWatchlistContext'
+import { useState } from 'react'
 
-function PlayerSelect({ player }) {
+function PlayerSelect({ player, index }) {
+  let m = index
   const { watchlist, dispatch, watchlistError } = useWatchlistContext()
+  const [error, setError] = useState(null)
   const watching = watchlist.filter(
     (person) => person.playerID === player.id.toString()
   )
@@ -28,11 +31,12 @@ function PlayerSelect({ player }) {
             throw new Error('Something wrong wrong in the request')
           }
         } catch (error) {
-          dispatch({ type: 'WATCHLIST_FULL' })
-
-          setTimeout(() => {
-            dispatch({ type: 'RESET_WATCHLIST_ERROR' })
-          }, [5000])
+          if (m === index) {
+            setError(true)
+            setTimeout(() => {
+              setError(null)
+            }, [2000])
+          }
         }
         break
       case 'REMOVE':
@@ -48,7 +52,6 @@ function PlayerSelect({ player }) {
           }
         } catch (error) {
           console.error(error)
-          window.alert(error)
         }
         break
       default:
@@ -70,6 +73,7 @@ function PlayerSelect({ player }) {
           </button>
         )
       ) : null}
+      {error && <p>Watch List Full</p>}
     </div>
   )
 }

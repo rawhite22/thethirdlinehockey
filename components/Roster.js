@@ -24,13 +24,8 @@ function Roster({ roster, watchList }) {
         <button onClick={() => setFilteredRoster(roster)}>Reset</button>
       </div>
       <div className='grid_container'>
-        {filteredRoster.map((player) => (
-          <PlayerSelect
-            key={player.id}
-            player={player}
-            watchList={watching}
-            setWatchList={setWatching}
-          />
+        {filteredRoster.map((player, index) => (
+          <PlayerSelect key={player.id} player={player} index={index} />
         ))}
       </div>
     </section>
