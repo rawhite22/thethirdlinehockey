@@ -18,7 +18,7 @@ function TeamStats({ stats }) {
         <p className='grey'>{stats.team_stats.shotsPerGame}</p>
         <p className='grey'>{stats.team_ranks.shotsPerGame}</p>
 
-        <p>Shots Allowed P/G</p>
+        <p>Shots Against P/G</p>
         <p>{stats.team_stats.shotsAllowed}</p>
         <p>{stats.team_ranks.shotsAllowed}</p>
 

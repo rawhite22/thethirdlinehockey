@@ -1,24 +1,26 @@
-import { getPlayerStats } from '../lib/nhl_api/players'
-import { getWatchList } from '../lib/watchlist'
+import WatchlistPlayer from '../components/WatchlistPlayer'
 
-function WatchList({ watching }) {
-  if (watching.length === 0) {
-    return <div>Watchlist is empty</div>
+import { useWatchlistContext } from '../hooks/useWatchlistContext'
+function WatchList() {
+  const { watchlist, dispatch } = useWatchlistContext()
+  if (watchlist.length === 0) {
+    return (
+      <main id='watchlist_page' className='watchlist_page_empty'>
+        Watchlist is empty
+      </main>
+    )
   }
   return (
-    <div>
-      {watching.map((player) => (
-        <p>{player.playerName}</p>
-      ))}
-    </div>
+    <main id='watchlist_page' className='watchlist_page'>
+      {watchlist &&
+        watchlist.map((player) => (
+          <WatchlistPlayer
+            player={player}
+            watchlist={watchlist}
+            dispatch={dispatch}
+          />
+        ))}
+    </main>
   )
 }
 export default WatchList
-
-export async function getServerSideProps(context) {
-  const watching = await getWatchList(context.req, context.res)
-
-  return {
-    props: { watching },
-  }
-}
