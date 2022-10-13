@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useWatchlistContext } from '../hooks/useWatchlistContext'
 
 function PlayerSelect({ player }) {
-  const { watchlist, dispatch } = useWatchlistContext()
+  const { watchlist, dispatch, watchlistError } = useWatchlistContext()
   const watching = watchlist.filter(
     (person) => person.playerID === player.id.toString()
   )
@@ -28,8 +28,11 @@ function PlayerSelect({ player }) {
             throw new Error('Something wrong wrong in the request')
           }
         } catch (error) {
-          console.log(error)
-          window.alert(error)
+          dispatch({ type: 'WATCHLIST_FULL' })
+
+          setTimeout(() => {
+            dispatch({ type: 'RESET_WATCHLIST_ERROR' })
+          }, [5000])
         }
         break
       case 'REMOVE':

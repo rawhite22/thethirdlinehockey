@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   const session = await unstable_getServerSession(req, res, authOptions)
   if (req.method === 'GET') {
     const userId = session.user.id
-    const { playerId, playerName, playerPos, playerTeamId } = req.body
     await mongoConnect()
     const watchlist = await WatchList.find().where({ user: userId })
     res.status(200).json(watchlist)
@@ -21,6 +20,9 @@ export default async function handler(req, res) {
       const alreadyWatching = watchlist.filter(
         (player) => player.playerID === playerId.toString()
       )
+      if (watchlist.length === 5) {
+        throw new Error('Watchlist is full')
+      }
       if (alreadyWatching.length > 0) {
         await mongoDisconnect()
         throw new Error('Already Watching')

@@ -11,6 +11,10 @@ export const WatchlistContextReducer = (state, action) => {
       return { ...state, watchlist: [...state.watchlist, action.payload] }
     case 'REMOVE_PLAYER':
       return { ...state, watchlist: action.payload }
+    case 'WATCHLIST_FULL':
+      return { ...state, watchlistError: 'Watchlist is limited to five spots' }
+    case 'RESET_WATCHLIST_ERROR':
+      return { ...state, watchlistError: null }
     default:
       return state
   }
@@ -19,6 +23,7 @@ export const WatchlistContextProvider = ({ children, component }) => {
   const { data: session } = useSession()
   const [state, dispatch] = useReducer(WatchlistContextReducer, {
     watchlist: [],
+    watchlistError: null,
   })
   const { events } = useRouter()
   useEffect(() => {
