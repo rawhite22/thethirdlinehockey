@@ -25,8 +25,8 @@ export default function Home({ teams }) {
         ))}
       </div>
       <div className='grid_system'>
-        {filteredTeams.map((team) => (
-          <TeamSelect key={team.id} team={team} />
+        {filteredTeams.map((team, index) => (
+          <TeamSelect key={team.id} team={team} index={index} />
         ))}
       </div>
     </main>

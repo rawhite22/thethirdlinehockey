@@ -4,11 +4,14 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useWatchlistContext } from '../hooks/useWatchlistContext'
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
 
 function PlayerSelect({ player, index }) {
-  let m = index
+  let selectedIndex = index
   const { watchlist, dispatch, watchlistError } = useWatchlistContext()
   const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
   const watching = watchlist.filter(
     (person) => person.playerID === player.id.toString()
   )
@@ -31,7 +34,7 @@ function PlayerSelect({ player, index }) {
             throw new Error('Something wrong wrong in the request')
           }
         } catch (error) {
-          if (m === index) {
+          if (selectedIndex === index) {
             setError(true)
             setTimeout(() => {
               setError(null)
@@ -61,7 +64,20 @@ function PlayerSelect({ player, index }) {
   return (
     <div className='player_select'>
       <h3>{player.name}</h3>
-      <Link href={`${asPath}/${player.id}`}>Stats & Info</Link>
+      {loading ? (
+        <FontAwesomeIcon spin icon={faSpinner} color='dodgerblue' size='2x' />
+      ) : (
+        <Link href={`${asPath}/${player.id}`}>
+          <a
+            onClick={() => {
+              if (selectedIndex === index) {
+                setLoading(true)
+              }
+            }}>
+            Stats & Info
+          </a>
+        </Link>
+      )}
       {session ? (
         watching.length > 0 ? (
           <button onClick={() => handleWatchListClick(player.id, 'REMOVE')}>

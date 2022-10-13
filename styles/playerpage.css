@@ -1,0 +1,56 @@
+.player_page {
+  padding: 0 1rem;
+  min-height: 70vh;
+}
+
+.player_page .team_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.player_page .team_link a {
+  color: dodgerblue;
+}
+
+.player_page .player_info {
+  background-color: white;
+  padding: 1rem;
+  -webkit-box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.player_page .skater_stats {
+  background-color: white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding: 2rem 0.5rem;
+}
+
+.player_page .skater_stats .stat_title {
+  font-weight: bolder;
+}
+
+.player_page .skater_stats .grey {
+  background-color: whitesmoke;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.1rem;
+  margin: 0.1rem;
+}

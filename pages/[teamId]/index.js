@@ -1,18 +1,42 @@
-import { useState } from 'react'
-import RosterFilterButton from '../../components/buttons/RosterFilterButton'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCircleCaretUp,
+  faCircleCaretLeft,
+} from '@fortawesome/pro-solid-svg-icons'
+import { useState, useEffect } from 'react'
 import Roster from '../../components/Roster'
 import TeamInfo from '../../components/TeamInfo'
 import TeamStats from '../../components/TeamStats'
 import { getTeam, getTeamRoster, getTeamStats } from '../../lib/nhl_api/teams'
 import { getWatchList } from '../../lib/watchlist'
+import Link from 'next/link'
 
 function TeamPage({ team, stats, roster, watchList }) {
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const handleScroll = () => {
+    const position = window.pageYOffset
+    setScrollPosition(position)
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [scrollPosition])
   return (
     <main id='team_page' className='team_page'>
+      <div className='teams_link'>
+        <Link href='/'>Back to Teams</Link>
+      </div>
       <TeamInfo info={team} />
       <TeamStats stats={stats} />
       <Roster roster={roster} watchList={watchList} />
+      <div
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={scrollPosition > 550 ? 'icon' : 'icon-disabled'}>
+        <FontAwesomeIcon icon={faCircleCaretUp} />
+      </div>
     </main>
   )
 }

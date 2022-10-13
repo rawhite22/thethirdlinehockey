@@ -34,16 +34,6 @@ export const WatchlistContextProvider = ({ children, component }) => {
     if (session) {
       getWL()
     }
-
-    const handleStart = () => {
-      console.log('page transition started')
-    }
-    const handleComplete = () => {
-      console.log('page transition complete')
-    }
-
-    events.on('routeChangeStart', handleStart)
-    events.on('routeChangeComplete', handleComplete)
   }, [session])
   return (
     <WatchlistContext.Provider value={{ ...state, dispatch }}>

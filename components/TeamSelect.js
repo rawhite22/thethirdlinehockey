@@ -1,14 +1,35 @@
 import Link from 'next/link'
 
 import Image from 'next/image'
-function TeamSelect({ team }) {
+
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
+function TeamSelect({ team, index }) {
+  const selectedIndex = index
+
+  const [loading, setLoading] = useState(false)
+
   return (
     <div className='team_card'>
       <div className='img-container'>
         <Image src={`/${team.id}.png`} height={1434} width={1992} />
       </div>
       <h2>{team.name}</h2>
-      <Link href={`/${team.id}`}>Team Info</Link>
+      {loading ? (
+        <FontAwesomeIcon spin icon={faSpinner} color='dodgerblue' size='2x' />
+      ) : (
+        <Link href={`/${team.id}`}>
+          <a
+            onClick={() => {
+              if (selectedIndex === index) {
+                setLoading(true)
+              }
+            }}>
+            Team Info
+          </a>
+        </Link>
+      )}
     </div>
   )
 }
