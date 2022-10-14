@@ -22,6 +22,7 @@ function WatchList() {
       {watchlist &&
         watchlist.map((player) => (
           <WatchlistPlayer
+            key={player.playerID}
             player={player}
             watchlist={watchlist}
             dispatch={dispatch}
