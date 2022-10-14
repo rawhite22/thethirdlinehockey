@@ -13,7 +13,12 @@ function TeamSelect({ team, index }) {
   return (
     <div className='team_card'>
       <div className='img-container'>
-        <Image src={`/${team.id}.png`} height={1434} width={1992} />
+        <Image
+          src={`/${team.id}.png`}
+          height={1434}
+          width={1992}
+          alt='team-logo'
+        />
       </div>
       <h2>{team.name}</h2>
       {loading ? (
