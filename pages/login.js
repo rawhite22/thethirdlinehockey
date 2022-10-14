@@ -5,7 +5,7 @@ import FormGroup from '../components/FormGroup'
 import { handleLoginSubmit } from '../lib/handlers/login'
 import { useRequestContext } from '../hooks/useRequestContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner, faStar } from '@fortawesome/pro-solid-svg-icons'
+import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
 function Login() {
   const { push } = useRouter()
   const { pageTransition } = useRequestContext()

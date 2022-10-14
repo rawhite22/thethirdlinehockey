@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import FormGroup from '../components/FormGroup'
 import { handleSignUpForm } from '../lib/handlers/signup'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
+import { useRequestContext } from '../hooks/useRequestContext'
 function Signup() {
+  const { pageTransition } = useRequestContext()
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -34,7 +38,18 @@ function Signup() {
             label='Password'
             stateSetter={setPassword}
           />
-          <button type='submit'>Sign Up</button>
+          {pageTransition ? (
+            <button disabled type='submit'>
+              <FontAwesomeIcon
+                spin
+                icon={faSpinner}
+                color='dodgerblue'
+                size='2x'
+              />
+            </button>
+          ) : (
+            <button type='submit'>Sign Up</button>
+          )}
         </form>
       </div>
     </main>
