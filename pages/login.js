@@ -3,9 +3,12 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import FormGroup from '../components/FormGroup'
 import { handleLoginSubmit } from '../lib/handlers/login'
-
+import { useRequestContext } from '../hooks/useRequestContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner, faStar } from '@fortawesome/pro-solid-svg-icons'
 function Login() {
   const { push } = useRouter()
+  const { pageTransition } = useRequestContext()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -26,7 +29,18 @@ function Login() {
             label='Password'
             stateSetter={setPassword}
           />
-          <button type='submit'>Login</button>
+          {pageTransition ? (
+            <button disabled type='submit'>
+              <FontAwesomeIcon
+                spin
+                icon={faSpinner}
+                color='dodgerblue'
+                size='2x'
+              />
+            </button>
+          ) : (
+            <button type='submit'>Login</button>
+          )}
         </form>
       </div>
       <Link href='/forgotpassword'>Forgot password?</Link>

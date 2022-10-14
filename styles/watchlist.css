@@ -1,3 +1,47 @@
-.watchlist_page {
+.watchlist_page,
+.watchlist_page_empty {
   padding: 0 1rem;
+}
+
+.watchlist_page_empty {
+  min-height: 65vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.watchlist_page_empty p {
+  margin-bottom: 0.5rem;
+}
+
+.watchlist_page {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
+}
+
+.watchlist_page .link_container {
+  color: dodgerblue;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
+
+.watchlist_page .watchlist_player_card {
+  grid-column: 1/-1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
+  margin-bottom: 0.5rem;
 }

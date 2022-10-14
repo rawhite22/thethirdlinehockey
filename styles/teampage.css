@@ -198,7 +198,15 @@
   margin-bottom: 0.5rem;
 }
 
-.team_page .roster .grid_container .player_select a {
+.team_page .roster .grid_container .player_select .link_container {
+  margin-bottom: 0.5rem;
+}
+
+.team_page .roster .grid_container .player_select .link_container a {
   font-weight: bolder;
   color: dodgerblue;
+}
+
+.team_page .roster .grid_container .player_select .watchlist-btn {
+  padding: 0.2rem;
 }

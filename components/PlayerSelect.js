@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useWatchlistContext } from '../hooks/useWatchlistContext'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
+import { faSpinner, faStar } from '@fortawesome/pro-solid-svg-icons'
 
 function PlayerSelect({ player, index }) {
   let selectedIndex = index
@@ -67,24 +67,30 @@ function PlayerSelect({ player, index }) {
       {loading ? (
         <FontAwesomeIcon spin icon={faSpinner} color='dodgerblue' size='2x' />
       ) : (
-        <Link href={`${asPath}/${player.id}`}>
-          <a
-            onClick={() => {
-              if (selectedIndex === index) {
-                setLoading(true)
-              }
-            }}>
-            Stats & Info
-          </a>
-        </Link>
+        <div className='link_container'>
+          <Link href={`${asPath}/${player.id}`}>
+            <a
+              onClick={() => {
+                if (selectedIndex === index) {
+                  setLoading(true)
+                }
+              }}>
+              Stats & Info
+            </a>
+          </Link>
+        </div>
       )}
       {session ? (
         watching.length > 0 ? (
-          <button onClick={() => handleWatchListClick(player.id, 'REMOVE')}>
+          <button
+            className='watchlist-btn'
+            onClick={() => handleWatchListClick(player.id, 'REMOVE')}>
             Remove from Watch List
           </button>
         ) : (
-          <button onClick={() => handleWatchListClick(player.id, 'ADD')}>
+          <button
+            className='watchlist-btn'
+            onClick={() => handleWatchListClick(player.id, 'ADD')}>
             Add to Watch List
           </button>
         )

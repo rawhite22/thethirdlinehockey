@@ -25,7 +25,8 @@
   margin-bottom: 1rem;
 }
 
-.player_page .skater_stats {
+.player_page .skater_stats,
+.player_page .goalie_stats {
   background-color: white;
   display: -ms-grid;
   display: grid;
@@ -35,11 +36,13 @@
   padding: 2rem 0.5rem;
 }
 
-.player_page .skater_stats .stat_title {
+.player_page .skater_stats .stat_title,
+.player_page .goalie_stats .stat_title {
   font-weight: bolder;
 }
 
-.player_page .skater_stats .grey {
+.player_page .skater_stats .grey,
+.player_page .goalie_stats .grey {
   background-color: whitesmoke;
   width: 100%;
   display: -webkit-box;

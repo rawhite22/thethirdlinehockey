@@ -17,6 +17,7 @@ export default function Home({ teams }) {
       <div className='filter_teams_container'>
         {tfb.map((button, index) => (
           <TeamsFilterButton
+            key={index}
             teams={teams}
             setFilter={setFilteredTeams}
             title={button.title}
