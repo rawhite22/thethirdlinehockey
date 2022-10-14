@@ -16,6 +16,15 @@
           align-items: center;
 }
 
+.login_page .error {
+  margin-bottom: 1rem;
+  background-color: red;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
 .login_page h2 {
   margin-bottom: 1rem;
 }

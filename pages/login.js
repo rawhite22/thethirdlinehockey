@@ -11,12 +11,16 @@ function Login() {
   const { pageTransition } = useRequestContext()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
 
   return (
     <main id='login_page' className='login_page'>
       <h2>Login</h2>
       <div className='form_container'>
-        <form onSubmit={(e) => handleLoginSubmit(e, username, password, push)}>
+        <form
+          onSubmit={(e) =>
+            handleLoginSubmit(e, username, password, push, setError)
+          }>
           <FormGroup
             type='text'
             value={username}
@@ -43,6 +47,7 @@ function Login() {
           )}
         </form>
       </div>
+      {error && <p className='error'>{error}</p>}
       <Link href='/forgotpassword'>Forgot password?</Link>
     </main>
   )
