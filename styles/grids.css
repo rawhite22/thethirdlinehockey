@@ -14,3 +14,27 @@
     gap: 1rem;
   }
 }
+
+@media (min-width: 481px) and (max-width: 700px) {
+  .grid_system {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .grid_system {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .grid_system {
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+}
