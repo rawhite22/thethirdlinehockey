@@ -1,6 +1,6 @@
 .watchlist_page,
 .watchlist_page_empty {
-  padding: 0 1rem;
+  margin: 0 1rem;
 }
 
 .watchlist_page_empty {
@@ -21,7 +21,13 @@
 }
 
 .watchlist_page_empty p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.watchlist_page_empty .link_container {
+  color: dodgerblue;
+  font-weight: bolder;
+  margin-bottom: 1rem;
 }
 
 .watchlist_page {

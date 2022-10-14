@@ -1,5 +1,5 @@
 .player_page {
-  padding: 0 1rem;
+  margin: 0 1rem;
   min-height: 70vh;
 }
 
@@ -56,4 +56,22 @@
           align-items: center;
   padding: 0.1rem;
   margin: 0.1rem;
+}
+
+@media (min-width: 481px) and (max-width: 700px) {
+  .player_page {
+    margin: 0 5rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .player_page {
+    margin: 0 10rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .player_page {
+    margin: 0 15rem;
+  }
 }

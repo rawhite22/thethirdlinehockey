@@ -1,5 +1,5 @@
 .home_page {
-  padding: 0 1rem;
+  margin: 0 1rem;
 }
 
 .home_page .filter_teams_container {
@@ -75,4 +75,40 @@
 .home_page .team_card a {
   color: dodgerblue;
   font-weight: bolder;
+}
+
+@media (min-width: 481px) and (max-width: 700px) {
+  .home_page {
+    padding: 0 2rem;
+  }
+  .home_page .filter_teams_container button {
+    font-size: 1.1rem;
+  }
+  .home_page .team_card {
+    min-height: 300px;
+  }
+  .home_page .team_card a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .home_page {
+    margin: 0 6rem;
+  }
+  .home_page .filter_teams_container {
+    height: 5rem;
+    padding: 1rem;
+  }
+  .home_page .filter_teams_container button {
+    padding: 0.2rem 0.4rem;
+    font-size: larger;
+  }
+  .home_page .team_card {
+    padding: 1rem;
+    min-height: 400px;
+  }
+  .home_page .team_card a {
+    font-size: 1.4rem;
+  }
 }

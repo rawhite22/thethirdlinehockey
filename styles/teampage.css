@@ -1,6 +1,6 @@
 .team_page {
   position: relative;
-  padding: 0 1rem;
+  margin: 0 1rem;
 }
 
 .team_page .teams_link {
@@ -209,4 +209,22 @@
 
 .team_page .roster .grid_container .player_select .watchlist-btn {
   padding: 0.2rem;
+}
+
+@media (min-width: 481px) and (max-width: 700px) {
+  .team_page {
+    margin: 0 5rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .team_page {
+    margin: 0 10rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .team_page {
+    margin: 0 15rem;
+  }
 }
