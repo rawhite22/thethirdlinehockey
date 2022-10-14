@@ -52,6 +52,7 @@ function Signup() {
           )}
         </form>
       </div>
+      {error && <p className='error'>{error}</p>}
     </main>
   )
 }

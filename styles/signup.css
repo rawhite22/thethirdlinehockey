@@ -16,6 +16,16 @@
           align-items: center;
 }
 
+.signup_page .error {
+  margin-bottom: 1rem;
+  background-color: rgba(255, 0, 0, 0.822);
+  color: whitesmoke;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
 .signup_page h2 {
   margin-bottom: 1rem;
 }
