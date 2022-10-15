@@ -3,8 +3,11 @@ import { verifyToken } from '../../lib/token'
 import { handlePasswordResetForm } from '../../lib/handlers/passwordReset'
 import { useRouter } from 'next/router'
 import FormGroup from '../../components/FormGroup'
-
+import { useRequestContext } from '../../hooks/useRequestContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
 function ResetPassword({ error, id }) {
+  const { pageTransition } = useRequestContext()
   const { push } = useRouter()
   const [hidePassword, setHidePassword] = useState(true)
   const [newPassword, setNewPassword] = useState('')
@@ -28,7 +31,18 @@ function ResetPassword({ error, id }) {
             stateSetter={setNewPassword}
           />
 
-          <button type='submit'>Reset Password</button>
+          {pageTransition ? (
+            <button disabled type='submit'>
+              <FontAwesomeIcon
+                spin
+                icon={faSpinner}
+                color='dodgerblue'
+                size='2x'
+              />
+            </button>
+          ) : (
+            <button type='submit'>Reset Password</button>
+          )}
         </form>
       </div>
     </main>

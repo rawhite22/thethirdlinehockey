@@ -44,7 +44,7 @@ function ForgotPassword() {
               />
             </button>
           ) : (
-            <button type='submit'>Login</button>
+            <button type='submit'>Send Email</button>
           )}
         </form>
       </div>
