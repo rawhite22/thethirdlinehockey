@@ -2,7 +2,11 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import FormGroup from '../../components/FormGroup'
+import { useRequestContext } from '../hooks/useRequestContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
 function ForgotPassword() {
+  const { pageTransition } = useRequestContext()
   const { push } = useRouter()
   const [email, setEmail] = useState('')
   const [error, setError] = useState(null)
@@ -30,7 +34,18 @@ function ForgotPassword() {
             stateSetter={setEmail}
           />
 
-          <button type='submit'>Send Reset Email</button>
+          {pageTransition ? (
+            <button disabled type='submit'>
+              <FontAwesomeIcon
+                spin
+                icon={faSpinner}
+                color='dodgerblue'
+                size='2x'
+              />
+            </button>
+          ) : (
+            <button type='submit'>Login</button>
+          )}
         </form>
       </div>
       {error && <p>{error}</p>}
