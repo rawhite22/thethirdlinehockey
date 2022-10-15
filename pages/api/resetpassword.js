@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       }
       await mongoConnect()
       const user = await User.findOne({ email: req.body.email })
-      console.log(user.id)
+
       if (!user) {
         throw new Error("Email doesn't exist")
       }
