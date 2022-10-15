@@ -3,7 +3,7 @@ import TeamSelect from '../components/TeamSelect'
 import { useState } from 'react'
 import TeamsFilterButton from '../components/buttons/TeamsFilterButton'
 
-const tfb = [
+const filterDivisionData = [
   { div: 'atl', title: 'Atlantic' },
   { div: 'cen', title: 'Central' },
   { div: 'met', title: 'Metro' },
@@ -15,7 +15,7 @@ export default function Home({ teams }) {
   return (
     <main id='home_page' className='home_page'>
       <div className='filter_teams_container'>
-        {tfb.map((button, index) => (
+        {filterDivisionData.map((button, index) => (
           <TeamsFilterButton
             key={index}
             teams={teams}

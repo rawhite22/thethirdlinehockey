@@ -44,13 +44,12 @@ export default async function handler(req, res) {
           `http://localhost:3000/forgotpassword/${token}\n\n` +
           'If you did not request this, please login in and change your password to keep your account safe.\n',
       }
-      transporter.sendMail(mailOptions, (err, response) => {
-        if (err) {
-          console.error('there was an error: ', err)
-        } else {
-          console.log('here is the res: ', response)
-        }
-      })
+      let ts = await transporter.sendMail(mailOptions)
+      if (ts.rejected.length > 0) {
+        transporter.close()
+        throw new Error('Email failed')
+      }
+      transporter.close()
       res.status(201).json({ updatedUser })
     } catch (error) {
       await mongoDisconnect()
