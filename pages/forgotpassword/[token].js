@@ -53,6 +53,7 @@ export default ResetPassword
 export async function getServerSideProps(context) {
   const { token } = context.params
   const userToken = await verifyToken(token)
+  console.log(userToken)
   if (userToken.error) {
     return {
       props: { error: 'expired token', id: null },

@@ -11,7 +11,6 @@ export default async function handler(req, res) {
       }
       await mongoConnect()
       const user = await User.findOne({ email: req.body.email })
-
       if (!user) {
         throw new Error("Email doesn't exist")
       }
@@ -63,13 +62,14 @@ export default async function handler(req, res) {
       }
       await mongoConnect()
       const user = await User.findById(req.body.id)
+      console.log(user)
       if (!user) {
         throw new Error('user not found')
       }
       const salt = await bcrypt.genSalt(10)
       const passwordHash = await bcrypt.hash(req.body.newPassword, salt)
-      const updatedUser = await User.findOneAndUpdate(
-        { id: user.id },
+      const updatedUser = await User.findByIdAndUpdate(
+        user.id,
         { resetPasswordToken: null, password: passwordHash },
         { new: true }
       )
