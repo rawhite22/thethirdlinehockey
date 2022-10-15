@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import FormGroup from '../../components/FormGroup'
-import { useRequestContext } from '../hooks/useRequestContext'
+import { useRequestContext } from '../../hooks/useRequestContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
 function ForgotPassword() {
