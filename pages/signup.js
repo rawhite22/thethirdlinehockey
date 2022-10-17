@@ -4,6 +4,7 @@ import { handleSignUpForm } from '../lib/handlers/signup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
 import { useRequestContext } from '../hooks/useRequestContext'
+import HeadComponent from '../components/HeadComponent'
 function Signup() {
   const { pageTransition } = useRequestContext()
   const [username, setUsername] = useState('')
@@ -14,6 +15,7 @@ function Signup() {
 
   return (
     <main id='signup_page' className='signup_page'>
+      <HeadComponent title={'The Third Line | Sign Up'} />
       <h2>Sign Up</h2>
       <div className='form_container'>
         <form

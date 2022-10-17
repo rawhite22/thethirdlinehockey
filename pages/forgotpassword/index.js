@@ -5,6 +5,7 @@ import FormGroup from '../../components/FormGroup'
 import { useRequestContext } from '../../hooks/useRequestContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
+import HeadComponent from '../../components/HeadComponent'
 function ForgotPassword() {
   const { pageTransition } = useRequestContext()
   const { push } = useRouter()
@@ -24,6 +25,7 @@ function ForgotPassword() {
   }
   return (
     <main id='forgotpassword_page' className='forgotpassword_page'>
+      <HeadComponent title={'3L | Forgot Password'} />
       <h2>Forgot Password</h2>
       <div className='form_container'>
         <form onSubmit={(e) => handleForgotPasswordEmailSubmit(e)}>

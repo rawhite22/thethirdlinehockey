@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import HeadComponent from '../components/HeadComponent'
 import WatchlistPlayer from '../components/WatchlistPlayer'
 
 import { useWatchlistContext } from '../hooks/useWatchlistContext'
@@ -16,6 +17,7 @@ function WatchList() {
   }
   return (
     <main id='watchlist_page' className='watchlist_page'>
+      <HeadComponent title={'3L | Watchlist'} />
       <h4>Player</h4>
       <h4>FPG</h4>
       <h4>Remove</h4>

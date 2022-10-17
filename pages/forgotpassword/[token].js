@@ -6,6 +6,7 @@ import FormGroup from '../../components/FormGroup'
 import { useRequestContext } from '../../hooks/useRequestContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
+import HeadComponent from '../../components/HeadComponent'
 function ResetPassword({ error, id }) {
   const { pageTransition } = useRequestContext()
   const { push } = useRouter()
@@ -20,6 +21,7 @@ function ResetPassword({ error, id }) {
   }
   return (
     <main id='resetpassword_page' className='resetpassword_page'>
+      <HeadComponent title={'3L | Reset Password'} />
       <h2>Reset Password</h2>
       <div className='form_container'>
         <form

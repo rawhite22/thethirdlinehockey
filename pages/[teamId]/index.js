@@ -10,6 +10,7 @@ import TeamStats from '../../components/TeamStats'
 import { getTeam, getTeamRoster, getTeamStats } from '../../lib/nhl_api/teams'
 import { getWatchList } from '../../lib/watchlist'
 import Link from 'next/link'
+import HeadComponent from '../../components/HeadComponent'
 
 function TeamPage({ team, stats, roster, watchList }) {
   const [scrollPosition, setScrollPosition] = useState(0)
@@ -26,6 +27,7 @@ function TeamPage({ team, stats, roster, watchList }) {
   }, [scrollPosition])
   return (
     <main id='team_page' className='team_page'>
+      <HeadComponent title={`3L | ${team.name}`} />
       <div className='teams_link'>
         <Link href='/'>Back to Teams</Link>
       </div>

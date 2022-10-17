@@ -2,6 +2,7 @@ import { teams } from '../data/teams'
 import TeamSelect from '../components/TeamSelect'
 import { useState } from 'react'
 import TeamsFilterButton from '../components/buttons/TeamsFilterButton'
+import HeadComponent from '../components/HeadComponent'
 
 const filterDivisionData = [
   { div: 'atl', title: 'Atlantic' },
@@ -14,6 +15,7 @@ export default function Home({ teams }) {
   const [filteredTeams, setFilteredTeams] = useState(teams)
   return (
     <main id='home_page' className='home_page'>
+      <HeadComponent title={'The Third Line | Home'} />
       <div className='filter_teams_container'>
         {filterDivisionData.map((button, index) => (
           <TeamsFilterButton

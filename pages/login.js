@@ -6,6 +6,7 @@ import { handleLoginSubmit } from '../lib/handlers/login'
 import { useRequestContext } from '../hooks/useRequestContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/pro-solid-svg-icons'
+import HeadComponent from '../components/HeadComponent'
 function Login() {
   const { push } = useRouter()
   const { pageTransition } = useRequestContext()
@@ -15,6 +16,7 @@ function Login() {
 
   return (
     <main id='login_page' className='login_page'>
+      <HeadComponent title={'The Third Line | Login'} />
       <h2>Login</h2>
       <div className='form_container'>
         <form
